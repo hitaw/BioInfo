@@ -28,7 +28,7 @@ def DIST_NAIF(x, y):
 	dist = math.inf
 	return DIST_NAIF_REC(x, y, 0, 0, 0, dist)
 
-f = open("Instances_genome/Inst_0000010_44.adn", "r")
+"""f = open("Instances_genome/Inst_0000010_44.adn", "r")
 lines = f.readlines()
 f.close()
 
@@ -59,7 +59,7 @@ x = x.replace(" ","")
 y = lines[3]
 y = y.replace(" ","")
 
-print(DIST_NAIF(x,y))
+print(DIST_NAIF(x,y))"""
 
 """
 test n = 13, m = 10, t = 55.8 s
