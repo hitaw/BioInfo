@@ -1,9 +1,10 @@
 import math
 from enumeration import *
+import matplotlib.pyplot as plt
 
 def DIST_1(x,y):
-	n = len(x)
-	m = len(y)
+	n = len(x)+1
+	m = len(y)+1
 	T = [[0] * m for i in range(n)] 
 	#comme on initialise toutes les cases à 0, il n'y a pas besoin de gérer le cas i == 0 && j == 0
 
@@ -18,33 +19,39 @@ def DIST_1(x,y):
 				else:
 					ins = T[i][j-1] + CINS
 					sup = T[i-1][j] + CDEL
-					sub = T[i-1][j-1] + csub(x[i], y[j])
+					sub = T[i-1][j-1] + csub(x[i-1], y[j-1])
 					T[i][j] = min(ins,sup,sub)
-	return T
+
+	return (T,T[n-1][m-1]) #On récupère également T pour pouvoir l'utiliser dans SOL_1
 
 def SOL_1(x,y,T):
-	i = len(x)-1
-	j = len(y)-1
+	i = len(x)
+	j = len(y)
 	x_ali = ""
 	y_ali = ""
 
+	if len(T)==0:
+		raise Exception("Le tableau est vide")
+		return None
 	while i > 0 or j > 0:
 		if j > 0 and T[i][j] == T[i][j-1] + CINS:
 			x_ali = "-" + x_ali
-			y_ali = y[j] + y_ali
+			y_ali = y[j-1] + y_ali
 			j -= 1
 		elif i > 0 and T[i][j] == T[i-1][j] + CDEL:
-			x_ali = x[i] + x_ali
+			x_ali = x[i-1] + x_ali
 			y_ali = "-" + y_ali
 			i -= 1
-		elif i > 0 and j > 0 and T[i][j] == T[i-1][j-1] + csub(x[i],y[j]):
-			x_ali = x[i] + x_ali
-			y_ali = y[j] + y_ali
+		elif i > 0 and j > 0 and T[i][j] == T[i-1][j-1] + csub(x[i-1],y[j-1]):
+			x_ali = x[i-1] + x_ali
+			y_ali = y[j-1] + y_ali
 			i -= 1
 			j -= 1
 		else:
 			raise Exception("Erreur")
-			return (None,None)
+			return None
 	return (x_ali,y_ali)
 
-print(SOL_1("ATCG","CGAT",DIST_1("ATCG","CGAT")))
+def PROG_DYN(x,y):
+	T,d = DIST_1(x,y)
+	return (d, SOL_1(x,y,T))
