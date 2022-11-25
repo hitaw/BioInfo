@@ -1,5 +1,4 @@
-from enumeration import *
-from dynamique import *
+from TacheD import *
 import os
 
 #Tests DIST_NAIF:

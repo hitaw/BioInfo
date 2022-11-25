@@ -1,5 +1,5 @@
 import math
-from enumeration import *
+from TacheA import *
 import matplotlib.pyplot as plt
 
 def DIST_1(x,y):
