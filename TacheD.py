@@ -16,7 +16,27 @@ def align_lettre_mot(x,y):
 		j += 1
 	return (mot_gaps(j)+x, y+"-")
 
-x = "A"
-y = "CTG"
+def coupure(x,y):
+	i_etoile = len(x)//2 + 1
+	n = len(x)+1
+	m = len(y)+1
+	T = [[0]*m for i in range(2)]
 
-print(align_lettre_mot(x,y))
+	for i in range(n):
+		for j in range(m):
+			if i == i_etoile:
+				T[1][j] = j
+			else:
+				D, v = DIST_2(x[:i],y[:j])
+				mini = min(D[0][j], D[0][j-1], D[1][j-1])
+				if mini == D[0][j]:
+					T[1][j] = T[0][j]
+				elif mini == D[0][j-1]:
+					T[1][j] = T[0][j-1]
+				else:
+					T[1][j] = T[1][j-1]
+		T[0] = T[1]
+	return T[1][m-1]
+
+def SOL_2(x,y):
+	
