@@ -66,7 +66,6 @@ def SOL_2(x,y):
 	""" Prérequis : 
 	x : str
 	y : str """
-
 	n = len(x)
 	m = len(y)
 
@@ -74,7 +73,7 @@ def SOL_2(x,y):
 		return (mot_gaps(m), y)
 
 	if m == 0:
-		return(x, mot_gaps(n))
+		return (x, mot_gaps(n))
 
 	if n == 1:
 		return align_lettre_mot(x,y)
@@ -84,6 +83,7 @@ def SOL_2(x,y):
 		return (x1,y1)
 
 	i = n//2
+
 	j = coupure(x,y)
 
 	x1,y1 = SOL_2(x[:i],y[:j])

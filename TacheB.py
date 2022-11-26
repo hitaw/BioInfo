@@ -39,7 +39,7 @@ def SOL_1(x,y,T):
 	j = len(y)
 	x_ali = ""
 	y_ali = ""
-	#L'implémentation actuelle de python optimise la concaténation de string de sorte à ce que la complexité soit approximativement la même qu'avec une liste, nous avons donc choisi d'utiliser des string.
+	#L'implémentation actuelle de python optimise la concaténation de string avec "+=" de sorte à ce que la complexité soit approximativement la même qu'avec une liste, nous avons donc choisi d'utiliser des string pour les alignements.
 
 	while i > 0 or j > 0:
 		if j > 0 and T[i][j] == T[i][j-1] + CINS:
@@ -68,5 +68,3 @@ def PROG_DYN(x,y):
 	T,d = DIST_1(x,y)
 
 	return (d, SOL_1(x,y,T))
-
-print(PROG_DYN("ACTG","TTAA"))
