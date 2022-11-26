@@ -17,7 +17,7 @@ def align_lettre_mot(x,y):
 	return (mot_gaps(j)+x, y+"-")
 
 def coupure(x,y):
-	i_etoile = len(x)//2 + 1
+	i_etoile = len(x)//2
 	n = len(x)+1
 	m = len(y)+1
 	T = [[0]*m for i in range(2)]
@@ -28,7 +28,6 @@ def coupure(x,y):
 				T[1][j] = j
 			else:
 				D, v = DIST_2(x[:i],y[:j])
-				print(x[:i],y[:j])
 				mini = min(D[0][j], D[0][j-1], D[1][j-1])
 				if mini == D[1][j-1]:
 					T[1][j] = T[1][j-1]
@@ -36,7 +35,8 @@ def coupure(x,y):
 					T[1][j] = T[0][j]
 				else:
 					T[1][j] = T[0][j-1]
-		T[0] = T[1]
+		if i != n - 1:
+			T[0] = T[1]
 	return T[1][m-1]
 
 def SOL_2(x,y):
@@ -56,11 +56,3 @@ def SOL_2(x,y):
 	x1,y1 = SOL_2(x[:i],y[:j])
 	x2,y2 = SOL_2(x[i:],y[j:])
 	return (x1+x2,y1+y2)
-
-
-x = "ATTGTA"
-y = "ATCTTA"
-print(coupure(x,y))
-
-
-
