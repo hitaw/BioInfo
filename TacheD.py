@@ -22,7 +22,7 @@ def coupure(x,y):
 	m = len(y)+1
 	T = [[0]*m for i in range(2)]
 
-	for i in range(n):
+	for i in range(i_etoile, n):
 		for j in range(m):
 			if i == i_etoile:
 				T[1][j] = j
@@ -38,5 +38,7 @@ def coupure(x,y):
 		T[0] = T[1]
 	return T[1][m-1]
 
-def SOL_2(x,y):
-	
+x = "ATTGT"
+y = "ATCT"
+print(coupure(x,y))
+
