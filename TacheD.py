@@ -12,7 +12,7 @@ def align_lettre_mot(x,y):
 			if j > 0:
 				return (mot_gaps(j)+x+mot_gaps(m-j-1),y)
 			else:
-				return(x+mot_gaps(m-1),y)
+				return (x+mot_gaps(m-1),y)
 		j += 1
 	return (mot_gaps(j)+x, y+"-")
 
@@ -28,17 +28,39 @@ def coupure(x,y):
 				T[1][j] = j
 			else:
 				D, v = DIST_2(x[:i],y[:j])
+				print(x[:i],y[:j])
 				mini = min(D[0][j], D[0][j-1], D[1][j-1])
-				if mini == D[0][j]:
-					T[1][j] = T[0][j]
-				elif mini == D[0][j-1]:
-					T[1][j] = T[0][j-1]
-				else:
+				if mini == D[1][j-1]:
 					T[1][j] = T[1][j-1]
+				elif mini == D[0][j]:
+					T[1][j] = T[0][j]
+				else:
+					T[1][j] = T[0][j-1]
 		T[0] = T[1]
 	return T[1][m-1]
 
-x = "ATTGT"
-y = "ATCT"
+def SOL_2(x,y):
+	n = len(x)
+	m = len(y)
+	if n == 0:
+		return (mot_gaps(m), y)
+	if m == 0:
+		return(x, mot_gaps(n))
+	if n == 1:
+		return align_lettre_mot(x,y)
+	if m == 1:
+		y1, x1 = align_lettre_mot(y,x)
+		return (x1,y1)
+	i = n//2
+	j = coupure(x,y)
+	x1,y1 = SOL_2(x[:i],y[:j])
+	x2,y2 = SOL_2(x[i:],y[j:])
+	return (x1+x2,y1+y2)
+
+
+x = "ATTGTA"
+y = "ATCTTA"
 print(coupure(x,y))
+
+
 
