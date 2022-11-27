@@ -1,5 +1,6 @@
 from TacheC import *
 
+
 def mot_gaps(k):
 
 	""" Prérequis :
@@ -15,18 +16,17 @@ def align_lettre_mot(x,y):
 	len(x) = 1
 	len(y) > 0 """
 
-	j = 0
 	m = len(y)
 
-	while j < m:
-		if csub(x, y[j])<CDEL+CINS:
-			if j > 0:
-				return (mot_gaps(j)+x+mot_gaps(m-j-1),y)
-			else:
-				return (x+mot_gaps(m-1),y)
-		j += 1
+	for j in range(m):
+		if x == y[j]:
+			return(mot_gaps(j)+x+mot_gaps(m-j-1),y)
 
-	return (mot_gaps(j)+x, y+"-")
+	for j in range(m):
+		if csub(x, y[j])<CDEL+CINS:
+			return (mot_gaps(j)+x+mot_gaps(m-j-1),y)
+
+	return (mot_gaps(m)+x, y+"-")
 
 def coupure(x,y):
 
@@ -38,34 +38,39 @@ def coupure(x,y):
 	n = len(x)+1
 	m = len(y)+1
 	T = [[0]*m for i in range(2)]
+	D = DIST_2(x[:i_etoile-1],y)[0]
+	D[0] = [i for i in D[1]]
 
 	for i in range(i_etoile, n):
-		for j in range(m):
+		D[1][0] = i * CDEL
+		for j in range(1,m):
+			ins = D[1][j-1] + CINS
+			sup = D[0][j] + CDEL
+			sub = D[0][j-1] + csub(x[i-1], y[j-1])
+			D[1][j] = min(ins,sup,sub)
+
 			if i == i_etoile:
 				T[1][j] = j
 
+			elif D[1][j] == sup:
+				T[1][j] = T[0][j]
+
+			elif D[1][j] == ins:
+				T[1][j] = T[1][j-1]
+
 			else:
-				D, v = DIST_2(x[:i],y[:j])
-				mini = min(D[0][j], D[0][j-1], D[1][j-1])
-
-				if mini == D[1][j-1]:
-					T[1][j] = T[1][j-1]
-
-				elif mini == D[0][j]:
-					T[1][j] = T[0][j]
-
-				else:
-					T[1][j] = T[0][j-1]
-
-		if i != n - 1:
-			T[0] = T[1]
-
+				T[1][j] = T[0][j-1]
+		
+		D[0] = [k for k in D[1]]
+		T[0] = [k for k in T[1]]
 	return T[1][m-1]
 
 def SOL_2(x,y):
+
 	""" Prérequis : 
 	x : str
 	y : str """
+
 	n = len(x)
 	m = len(y)
 

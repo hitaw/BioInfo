@@ -2,7 +2,7 @@ from TacheD import *
 import matplotlib.pyplot as plt
 
 elapsed = []
-taille = [10,12,13,14,15,20,50,100,500]#,1000,2000,3000,5000,8000,10000,15000,20000]
+taille = [10,12,13,14,15,20,50,100,500,1000,2000,3000,5000,8000,10000,15000,20000]
 
 #10_7
 f = open("Instances_genome/Inst_0000010_7.adn", "r")
@@ -166,7 +166,7 @@ end = time.time()
 elapsed.append((end - start)/60)
 print("ok9")
 
-"""#1000_2
+#1000_2
 f = open("Instances_genome/Inst_0001000_2.adn", "r")
 lines = f.readlines()
 f.close()
@@ -310,7 +310,7 @@ end = time.time()
 elapsed.append((end - start)/60)
 print("ok17")
 
-#Pour n = 50000 : > 10 minutes"""
+#Pour n = 50000 : > 10 minutes
 
 plt.plot(taille, elapsed)
 plt.show()

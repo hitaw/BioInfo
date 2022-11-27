@@ -25,7 +25,7 @@ def DIST_2(x,y):
 				sub = T[0][j-1] + csub(x[i-1], y[j-1])
 				T[1][j] = min(ins,sup,sub)
 
-		if i != n - 1: 
-			T[0] = T[1]
+		if i != n - 1:
+			T[0] = [k for k in T[1]]
 
 	return (T,T[1][m-1])
