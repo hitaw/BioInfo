@@ -17,9 +17,9 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_1(x,y)
+PROG_DYN(x,y)
 end = time.time()
-elapsed.append((end - start)/60)
+elapsed.append((end - start))
 print("ok1")
 
 #12_56
@@ -35,9 +35,9 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_1(x,y)
+PROG_DYN(x,y)
 end = time.time()
-elapsed.append((end - start)/60)
+elapsed.append((end - start))
 print("ok2")
 
 #13_89
@@ -53,9 +53,9 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_1(x,y)
+PROG_DYN(x,y)
 end = time.time()
-elapsed.append((end - start)/60)
+elapsed.append((end - start))
 print("ok3")
 
 #14_7
@@ -71,9 +71,9 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_1(x,y)
+PROG_DYN(x,y)
 end = time.time()
-elapsed.append((end - start)/60)
+elapsed.append((end - start))
 print("ok4")
 
 #15_2
@@ -89,9 +89,9 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_1(x,y)
+PROG_DYN(x,y)
 end = time.time()
-elapsed.append((end - start)/60)
+elapsed.append((end - start))
 print("ok5")
 
 #20_8
@@ -107,9 +107,9 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_1(x,y)
+PROG_DYN(x,y)
 end = time.time()
-elapsed.append((end - start)/60)
+elapsed.append((end - start))
 print("ok6")
 
 #50_9
@@ -125,9 +125,9 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_1(x,y)
+PROG_DYN(x,y)
 end = time.time()
-elapsed.append((end - start)/60)
+elapsed.append((end - start))
 print("ok7")
 
 #100_44
@@ -143,9 +143,9 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_1(x,y)
+PROG_DYN(x,y)
 end = time.time()
-elapsed.append((end - start)/60)
+elapsed.append((end - start))
 print("ok8")
 
 #500_88
@@ -161,9 +161,9 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_1(x,y)
+PROG_DYN(x,y)
 end = time.time()
-elapsed.append((end - start)/60)
+elapsed.append((end - start))
 print("ok9")
 
 #1000_2
@@ -179,9 +179,9 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_1(x,y)
+PROG_DYN(x,y)
 end = time.time()
-elapsed.append((end - start)/60)
+elapsed.append((end - start))
 print("ok10")
 
 #2000_44
@@ -197,9 +197,9 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_1(x,y)
+PROG_DYN(x,y)
 end = time.time()
-elapsed.append((end - start)/60)
+elapsed.append((end - start))
 print("ok11")
 
 #3000_1
@@ -215,9 +215,9 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_1(x,y)
+PROG_DYN(x,y)
 end = time.time()
-elapsed.append((end - start)/60)
+elapsed.append((end - start))
 print("ok12")
 
 #5000_32
@@ -233,9 +233,9 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_1(x,y)
+PROG_DYN(x,y)
 end = time.time()
-elapsed.append((end - start)/60)
+elapsed.append((end - start))
 print("ok13")
 
 #8000_32
@@ -251,9 +251,9 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_1(x,y)
+PROG_DYN(x,y)
 end = time.time()
-elapsed.append((end - start)/60)
+elapsed.append((end - start))
 print("ok14")
 
 #10000_7
@@ -269,9 +269,9 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_1(x,y)
+PROG_DYN(x,y)
 end = time.time()
-elapsed.append((end - start)/60)
+elapsed.append((end - start))
 print("ok15")
 
 #15000_3
@@ -287,13 +287,16 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_1(x,y)
+PROG_DYN(x,y)
 end = time.time()
-elapsed.append((end - start)/60)
+elapsed.append((end - start))
 print("ok16")
 
 #Pour n = 20000 : Processus arrêté
 #Pour n = 50000 : Processus arrêté
 
 plt.plot(taille, elapsed)
-plt.show()
+plt.title("Temps pris par SOL_1 en fonction de la taille de x")
+plt.xlabel("Taille de x")
+plt.ylabel("Temps (en secondes)")
+plt.savefig("images/SOL1.png")
