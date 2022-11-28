@@ -42,24 +42,26 @@ def coupure(x,y):
 	D[0] = [i for i in D[1]]
 
 	for i in range(i_etoile, n):
-		D[1][0] = i * CDEL
-		for j in range(1,m):
-			ins = D[1][j-1] + CINS
-			sup = D[0][j] + CDEL
-			sub = D[0][j-1] + csub(x[i-1], y[j-1])
-			D[1][j] = min(ins,sup,sub)
-
-			if i == i_etoile:
-				T[1][j] = j
-
-			elif D[1][j] == sup:
-				T[1][j] = T[0][j]
-
-			elif D[1][j] == ins:
-				T[1][j] = T[1][j-1]
-
+		for j in range(m):
+			if j == 0:
+				D[1][j] = i * CDEL
 			else:
-				T[1][j] = T[0][j-1]
+				ins = D[1][j-1] + CINS
+				sup = D[0][j] + CDEL
+				sub = D[0][j-1] + csub(x[i-1], y[j-1])
+				D[1][j] = min(ins,sup,sub)
+
+				if i == i_etoile:
+					T[1][j] = j
+
+				elif D[1][j] == sup:
+					T[1][j] = T[0][j]
+
+				elif D[1][j] == ins:
+					T[1][j] = T[1][j-1]
+
+				else:
+					T[1][j] = T[0][j-1]
 		
 		D[0] = [k for k in D[1]]
 		T[0] = [k for k in T[1]]
