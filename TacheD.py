@@ -28,6 +28,7 @@ def align_lettre_mot(x,y):
 
 	return (mot_gaps(m)+x, y+"-")
 
+
 def coupure(x,y):
 
 	""" Prérequis :
