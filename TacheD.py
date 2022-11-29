@@ -39,8 +39,12 @@ def coupure(x,y):
 	n = len(x)+1
 	m = len(y)+1
 	T = [[0]*m for i in range(2)]
-	D = DIST_2(x[:i_etoile-1],y)[0]
-	D[0] = [i for i in D[1]]
+	
+	if i_etoile == 0:
+		D = DIST_2(x[:i_etoile+1],y)[0]
+	else:
+		D = DIST_2(x[:i_etoile],y)[0]
+	D[1] = [0]*m
 
 	for i in range(i_etoile, n):
 		for j in range(m):
@@ -51,19 +55,14 @@ def coupure(x,y):
 				sup = D[0][j] + CDEL
 				sub = D[0][j-1] + csub(x[i-1], y[j-1])
 				D[1][j] = min(ins,sup,sub)
-
 				if i == i_etoile:
 					T[1][j] = j
-
 				elif D[1][j] == sup:
 					T[1][j] = T[0][j]
-
 				elif D[1][j] == ins:
 					T[1][j] = T[1][j-1]
-
 				else:
 					T[1][j] = T[0][j-1]
-		
 		D[0] = [k for k in D[1]]
 		T[0] = [k for k in T[1]]
 	return T[1][m-1]
@@ -98,3 +97,10 @@ def SOL_2(x,y):
 	x2,y2 = SOL_2(x[i:],y[j:])
 
 	return (x1+x2,y1+y2)
+
+x = "ACTGGTC"
+y = "TGCAA"
+
+x = "ACTGGTC"
+y = "TGCAA"
+print(SOL_2(x,y))

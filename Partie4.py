@@ -1,5 +1,3 @@
-#Partie 4
-
 from TacheD import *
 import random
 
@@ -20,6 +18,9 @@ def generate_instance(n, m):
 		raise Exception("Erreur lors de l'ouverture du fichier")
 		return None
 
+	f.write(str(n) + "\n")
+	f.write(str(m) + "\n")
+
 	for i in range(n):
 		f.write(random.choice(L))
 
@@ -38,51 +39,26 @@ instance3 = generate_instance(15000,500)
 
 print("\n")
 
-f = open(instance1, "r")
-lines = f.readlines()
-f.close()
-
-x = lines[0]
-x = x.replace("\n","")
-y = lines[1]
-y = y.replace("\n","")
+x,n,y,m = ouvrir_fichier(instance1)
 
 T, d = DIST_2(x,y)
 
 print("Distance d'édition pour n = 1000, m = 10 : " + str(d))
-print("(m - n) * CDEL = " + str((len(x)-len(y))*CDEL))
+print("(n - m) * CDEL = " + str((n-m)*CDEL))
 print("\n")
 
-f = open(instance2, "r")
-lines = f.readlines()
-f.close()
-
-x = lines[0]
-x = x.replace("\n","")
-y = lines[1]
-y = y.replace("\n","")
+x,n,y,m = ouvrir_fichier(instance2)
 
 T, d = DIST_2(x,y)
 
 print("Distance d'édition pour n = 5000, m = 100 : " + str(d))
-print("(m - n) * CDEL = " + str((len(x)-len(y))*CDEL))
+print("(n - m) * CDEL = " + str((n-m)*CDEL))
 print("\n")
 
-f = open(instance3, "r")
-lines = f.readlines()
-f.close()
-
-x = lines[0]
-x = x.replace("\n","")
-y = lines[1]
-y = y.replace("\n","")
+x,n,y,m = ouvrir_fichier(instance3)
 
 T, d = DIST_2(x,y)
 
 print("Distance d'édition pour n = 15000, m = 500 : " + str(d))
-print("(m - n) * CDEL = " + str((len(x)-len(y))*CDEL))
+print("(n - m) * CDEL = " + str((n-m)*CDEL))
 print("\n")
-
-
-
-

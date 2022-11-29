@@ -28,4 +28,4 @@ def ouvrir_fichier(nom):
 	y = y.replace(" ","")
 	y = y.replace("\n","")
 
-	return (x,n,y,m)
+	return (x,int(n),y,int(m))
