@@ -203,7 +203,7 @@ plt.ylabel("Temps (en secondes)")
 plt.savefig("images/SOL2.png")
 
 plt.xlim(0,15001)
-plt.ylim(0,10)
+plt.ylim(0,4)
 plt.savefig("images/SOL2ZOOM.png")
 
 print("tests_sol_2 done")

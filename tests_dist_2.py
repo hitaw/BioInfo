@@ -202,8 +202,8 @@ plt.xlabel("Taille de x")
 plt.ylabel("Temps (en secondes)")
 plt.savefig("images/DIST2.png")
 
-plt.xlim(0,15000)
-plt.ylim(0,8)
+plt.xlim(0,15001)
+plt.ylim(0,4)
 plt.savefig("images/DIST2ZOOM.png")
 
 print("tests_dist_2 done")
