@@ -1,7 +1,7 @@
 from TacheD import *
 
 #20000_77
-f = open("Instances_genome/Inst_0050000_88.adn", "r")
+f = open("Instances_genome/Inst_0015000_3.adn", "r")
 lines = f.readlines()
 f.close()
 
@@ -13,6 +13,6 @@ y = y.replace(" ","")
 y = y.replace("\n","")
 
 start = time.time()
-DIST_2(x,y)
+DIST_1(x,y)
 end = time.time()
 print((end - start)/60)
