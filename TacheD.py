@@ -68,7 +68,7 @@ def coupure(x,y):
 
 				else:
 					T[1][j] = T[0][j-1]
-					
+
 		D[0] = [k for k in D[1]]
 		T[0] = [k for k in T[1]]
 	return T[1][m-1]
@@ -103,10 +103,3 @@ def SOL_2(x,y):
 	x2,y2 = SOL_2(x[i:],y[j:])
 
 	return (x1+x2,y1+y2)
-
-x = "ACTGGTC"
-y = "TGCAA"
-
-x = "ACTGGTC"
-y = "TGCAA"
-print(SOL_2(x,y))
