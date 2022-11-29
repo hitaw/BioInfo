@@ -187,14 +187,14 @@ elapsed.append((end - start))
 print("ok")
 
 #100000_3
-x,n,y,m = ouvrir_fichier("Instances_genome/Inst_0100000_3.adn")
+#x,n,y,m = ouvrir_fichier("Instances_genome/Inst_0100000_3.adn")
 
-start = time.time()
-SOL_2(x,y)
-end = time.time()
+#start = time.time()
+#SOL_2(x,y)
+#end = time.time()
 
-taille.append(n)
-elapsed.append((end - start))
+#taille.append(n)
+#elapsed.append((end - start))
 
 plt.plot(taille, elapsed)
 plt.title("Temps pris par SOL_2 en fonction de la taille de x")
