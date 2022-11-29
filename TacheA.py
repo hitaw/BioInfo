@@ -1,5 +1,6 @@
 import math
 import time
+from ouverture_fichier import *
 CDEL = 2
 CINS = 2
 
