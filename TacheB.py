@@ -10,13 +10,12 @@ def DIST_1(x,y):
 	m = len(y)+1
 	T = [[0] * m for i in range(n)]
 
-	for i in range(n):
-		for j in range(m):
-			if i == 0:
-				T[i][j] = j * CINS
-
-			elif j == 0:
-				T[i][j] = i * CDEL
+	for i in range(n): #on parcourt x
+ 		for j in range(m): #on parcourt y
+			if i == 0: #quand on est à la première lettre de x
+				T[i][j] = j * CINS #on donne le résultat de la multiplication de l'indice j et du coût d'une insertion à la case [0][j] du tableau T
+			elif j == 0:#quand on est à la première lettre de y
+				T[i][j] = i * CDEL #on donne le résultat de la multiplication de l'indice i et du coût d'une suppression à la case [i][0] du tableau T
 
 			else:
 				ins = T[i][j-1] + CINS

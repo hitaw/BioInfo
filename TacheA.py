@@ -4,7 +4,7 @@ from ouverture_fichier import *
 CDEL = 2
 CINS = 2
 
-def csub(a, b):
+def csub(a, b):				#On crée une fonction pour que csub puisse s'adapter en fonction de la situation
 	""" Prérequis :
 	a : str
 	b : str
@@ -20,7 +20,7 @@ def csub(a, b):
 	return 4
 
 
-def DIST_NAIF_REC(x, y, i, j, c, dist):
+def DIST_NAIF_REC(x, y, i, j, c, dist):		#retourne la distance d'édition du meilleur alignement de x et y
 
 	""" Prérequis : 
 	x : str
@@ -47,7 +47,7 @@ def DIST_NAIF_REC(x, y, i, j, c, dist):
 
 	return dist
 
-def DIST_NAIF(x, y):
+def DIST_NAIF(x, y):						#retourne la distance d'édition de deux éléments X et Y
 	""" Prérequis :
 	x : str
 	y : str """
