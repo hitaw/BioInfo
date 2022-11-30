@@ -1,9 +1,21 @@
 #On crée une fonction d'ouverture de fichier pour éviter d'avoir à répéter ces opérations à chaque fois durant les tests
 
 def ouvrir_fichier(nom):
-	""" Prérequis :
+	""" 
+	Récupère les valeurs x et y d'un fichier d'instance
+
+	Entrée :
+
 	nom : str
-	nom -> nom de fichier valide et existant """
+	nom -> nom de fichier valide et existant 
+
+	Sortie :
+	
+	x : str
+	n : int
+	y : str
+	m : int 
+	"""
 
 	f = open(nom, "r") 						# On ouvre le fichier en mode lecture
 
@@ -30,4 +42,4 @@ def ouvrir_fichier(nom):
 	y = y.replace(" ","")
 	y = y.replace("\n","")
 
-	return (x,int(n),y,int(m))
+	return (x,int(n),y,int(m))				#On retourne x, la taille de x, y et la taille de y

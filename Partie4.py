@@ -5,9 +5,19 @@ L = ["A","C","T","G"]
 k = 1
 
 def generate_instance(n, m):
-	""" Prérequis : 
-	n : int
-	m : int """
+	""" 
+	Génère un fichier d'instances créées aléatoirement
+
+	Entrée : 
+
+	n : int -> taille de x
+	m : int -> taille de y
+
+	Sortie :
+
+	nom_fic : str -> nom du fichier
+	"""
+
 	global k
 
 	nom_fic = "Instances_partie_quatre/Instance_" + str(k) +".adn"
@@ -23,6 +33,7 @@ def generate_instance(n, m):
 
 	for i in range(n):
 		f.write(random.choice(L))
+		f.write(" ")
 
 	f.write("\n")
 

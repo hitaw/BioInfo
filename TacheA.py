@@ -4,12 +4,21 @@ from ouverture_fichier import *
 CDEL = 2
 CINS = 2
 
-def csub(a, b):				#On crée une fonction pour que csub puisse s'adapter en fonction de la situation
-	""" Prérequis :
+def csub(a, b):
+	""" 
+	Calcul de csub
+
+	Entrée :
+
 	a : str
 	b : str
 	len(a) == 1
-	len(b) == 1 """
+	len(b) == 1 
+
+	Sortie :
+
+	CSUB : int
+	"""
 
 	if (a == b):
 		return 0
@@ -20,17 +29,24 @@ def csub(a, b):				#On crée une fonction pour que csub puisse s'adapter en fonc
 	return 4
 
 
-def DIST_NAIF_REC(x, y, i, j, c, dist):		#retourne la distance d'édition du meilleur alignement de x et y
+def DIST_NAIF_REC(x, y, i, j, c, dist):
 
-	""" Prérequis : 
+	""" 
+	Calcule le coût du meilleur alignement de (x,y) connu après l'appel
+
+	Entrée : 
+
 	x : str
 	y : str
-	i : int
-	j : int
+	i : int <= len(x)
+	j : int <= len(y)
 	c : int
 	dist : int 
-	i <= len(x)
-	j <= len(y) """
+
+	Sortie :
+
+	dist : int
+	"""
 
 	if (i == len(x) and j == len(y)):
 		if (c < dist):
@@ -47,10 +63,19 @@ def DIST_NAIF_REC(x, y, i, j, c, dist):		#retourne la distance d'édition du mei
 
 	return dist
 
-def DIST_NAIF(x, y):						#retourne la distance d'édition de deux éléments X et Y
-	""" Prérequis :
+def DIST_NAIF(x, y):
+	""" 
+	Appel de la fonction DIST_NAIF_REC() pour calculer la distance d'édition de (x,y)
+
+	Entrée :
+
 	x : str
-	y : str """
+	y : str 
+
+	Sortie :
+
+	D(x,y) : int
+	"""
 
 	dist = math.inf
 
